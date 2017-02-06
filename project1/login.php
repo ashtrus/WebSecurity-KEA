@@ -22,14 +22,16 @@ catch(PDOException $e)
 
 
 
-
-
 $username = "username"; 
 $password = "password";
 
 $inputPassword = $_GET['inputPassword']; 
 $inputUsername = $_GET['inputUsername']; 
 
+if (isset($_GET['inputUsername'])) {
+    //Sanitizing the input iwht FILTER CONSTANT 
+    $_GET['inputUsername'] = filter_var($_GET['inputUsername'], FILTER_SANITIZE_STRING);
+}
 
 
 if ($username == $inputUsername && $password == $inputPassword) {
