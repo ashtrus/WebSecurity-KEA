@@ -31,12 +31,17 @@ $inputUsername = $_GET['inputUsername'];
 if (isset($_GET['inputUsername'])) {
     //Sanitizing the input iwht FILTER CONSTANT 
     $_GET['inputUsername'] = filter_var($_GET['inputUsername'], FILTER_SANITIZE_STRING);
+
 }
 
 
 if ($username == $inputUsername && $password == $inputPassword) {
 
-    echo '{"status":"ok"}'; 
+    $inputUsername = $input; 
+    $input  =  preg_replace('/\s+/', ' ', $input);
+
+    echo $input;
+    //echo '{"status":"ok"}'; 
 
 }
 
