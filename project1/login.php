@@ -38,7 +38,11 @@ if (isset($_GET['inputUsername'])) {
 if ($username == $inputUsername && $password == $inputPassword) {
 
     $inputUsername = $input; 
+    //Remove Escape Seq. !Allowed 
     $input  =  preg_replace('/\s+/', ' ', $input);
+
+    //Remove Script<> !Allowed 
+    $input  =  preg_replace('<script>', ' ', $input);
 
     echo $input;
     //echo '{"status":"ok"}'; 
