@@ -45,7 +45,7 @@ session_start();
 
 			<div class="row">
 				<div class="input-field col s6">
-					<input class="waves-effect waves-light btn-large" type="submit" name="submit" value="Submit" id="submitBtn" >
+					<button class="waves-effect waves-light btn-large"  id="submitBtn" >Login</button>
 				</div>
 			</div>
 		
@@ -68,13 +68,72 @@ session_start();
 
 
 <script> 
+var counterReq = 0 ; 
+var inputUsernameGlobal = ""; 
 
-    $('#submitBtn').on('click', function( ) {
+
+
+
+$('#username').on('blur', function(event) {
+		
+	//event.preventDefault();
 
     var inputUsername = $('#username').val(); 
     var inputPassword = $('#password').val(); 
 
-    var sLink = "login.php?inputUsername="+ inputUsername + "&inputPassword="+ inputPassword; 
+	console.log("inputUsername", inputUsername);
+
+
+	if (inputUsername == inputUsernameGlobal ) {
+
+		inputUsernameGlobal = inputUsername; 
+
+	} else {
+		event.preventDefault("user differentt ");
+
+		$("#submitBtn").removeClass("disabled");
+		counterReq=0;
+		console.log("counter reseted");
+
+	}
+	
+
+
+		$('#submitBtn').on('click', function(event) {
+
+				console.log("submitBtn pressed");
+
+			event.preventDefault();
+
+
+
+			if (counterReq >= 3 ) {
+				console.log("counter checking " , counterReq);
+	
+
+
+				$("#submitBtn").addClass("disabled");
+
+				setTimeout(function(){ 
+				
+
+					console.log("freezre ",  counterReq ,  " ctimeout function started");
+					$("#submitBtn").removeClass("disabled");
+
+						
+
+				}, 30000);
+
+			} else	{
+				
+				counterReq += 1;
+				console.log(counterReq);
+
+
+			}
+
+/*
+	var sLink = "login.php?inputUsername="+ inputUsername + "&inputPassword="+ inputPassword; 
 
       $.ajax({
 		  "method": "GET",
@@ -84,9 +143,17 @@ session_start();
 	  }).done(function(jData) {
 
 		     if (jData.status == "ok") {
-				console.log("hide login interface + show login message")
+				console.log("You logged in ");
 			 }
 	  })
+
+
+*/
+
+		})
+
+
+
     })
 
 
