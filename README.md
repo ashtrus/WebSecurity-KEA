@@ -35,3 +35,22 @@ You need to escape user input before inserting or updating it into the database.
 $mysql['username'] = mysql_real_escape_string($clean['username']);
 $sql = "SELECT * FROM users WHERE username = '{$mysql['username']}'";
 $result = mysql_query($sql);
+
+
+
+CLient Sde Security -> Session 4 - Web Sec Class 
+
+-OWASP
+-HTTP Headers 
+-Cookies
+-Request / Hostname /origin /refer / Useragent 
+-Respond  / 
+
+Form inputs 
+Disabled  / hidden field 
+Modify header - request 
+
+Attacks 
+-Sessions Hijacking 
+
+
