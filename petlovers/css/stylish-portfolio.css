@@ -202,6 +202,13 @@ hr.small {
     margin-bottom: 30px;
 }
 
+.portfolio-item .petCardOptions i {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    color: white;
+}
+
 .img-portfolio {
     margin: 0 auto;
 }

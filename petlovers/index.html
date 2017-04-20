@@ -169,6 +169,9 @@
                                 <a href="#">
                                     <img class="img-portfolio img-responsive" src="img/beach-1790049_1280.jpg">
                                 </a>
+                                <div class="petCardOptions">
+                                    <i class="fa fa-heart-o fa-3x" aria-hidden="true"></i>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -176,6 +179,9 @@
                                 <a href="#">
                                     <img class="img-portfolio img-responsive" src="img/cat-401124_1280.jpg">
                                 </a>
+                                <div class="petCardOptions">
+                                    <i class="fa fa-heart-o fa-3x" aria-hidden="true"></i>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -183,6 +189,9 @@
                                 <a href="#">
                                     <img class="img-portfolio img-responsive" src="img/guinea-pig-629784_1280.jpg">
                                 </a>
+                                <div class="petCardOptions">
+                                    <i class="fa fa-heart-o fa-3x" aria-hidden="true"></i>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -190,6 +199,9 @@
                                 <a href="#">
                                     <img class="img-portfolio img-responsive" src="img/hedgehog-468228_1280.jpg">
                                 </a>
+                                <div class="petCardOptions">
+                                    <i class="fa fa-heart-o fa-3x" aria-hidden="true"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -264,8 +276,63 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Sign in</button>
+                    <div class="col-sm-offset-2 col-sm-2">
+                    <button type="submit" class="btn btn-default">Log in</button>
+                    </div>
+                    <div class="col-sm-2">
+                    <button id="openModalRegister" class="btn btn-default btn-danger">Register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+    <!-- Register Modal -->
+
+    <div class="modal fade" id="modalRegister">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Register</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="txtRegName" class="col-sm-2 control-label">Name</label>
+                    <div class="col-sm-10">
+                    <input type="text" class="form-control" id="txtRegName" placeholder="Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="txtRegLastname" class="col-sm-2 control-label">Lastname</label>
+                    <div class="col-sm-10">
+                    <input type="text" class="form-control" id="txtRegLastname" placeholder="Lastname">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                    <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2">
+                    <button class="btn btn-default btn-danger">Register</button>
                     </div>
                 </div>
             </form>
@@ -362,6 +429,11 @@
     // Open Modal for login 
     $('#openModalLogin').click( function() {        
         $('#modalLogin').modal('toggle')
+    });  
+
+    // Open Modal for login 
+    $('#openModalRegister').click( function() {        
+        $('#modalRegister').modal('toggle')
     });  
 
 
