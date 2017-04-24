@@ -1,13 +1,14 @@
 <?php 
-require_once ('./functions/dbconfig.php');
-require_once('./functions/login.php');
+    require_once ('./functions/dbconfig.php');
+    require_once('./functions/login.php');
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include_once 'components/head.php'; ?> 
+    <?php include_once 'components/head.php'; ?> 
+
 <body>
 
     <!-- Navigation -->
@@ -173,8 +174,6 @@ require_once('./functions/login.php');
 
         <!-- Custom theme -->
         <script src="js/customtheme.js"> </script> 
-
-
 
 
 

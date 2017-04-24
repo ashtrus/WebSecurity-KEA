@@ -15,8 +15,11 @@ class USER
     {
        try
        {
-           $new_password = password_hash($upass, PASSWORD_DEFAULT);
+           $new_password = password_hash($upass, PASSWORD_DEFAULT);  //Needs configuration to SHA256  MOST SECYRE IMO 
    
+           //REQUERMENT -> MYSQL _ Remove Escape characters ---_> HERE!! !
+           //$safe_variable = mysql_real_escape_string
+           //PREPARED STATEMENT
            $stmt = $this->db->prepare("INSERT INTO users(user_name,user_email,user_pass) 
                                                        VALUES(:uname, :umail, :upass)");
               
