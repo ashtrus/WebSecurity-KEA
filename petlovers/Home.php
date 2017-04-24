@@ -24,7 +24,7 @@ $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 
 <div class="header">
  <div class="left">
-     <label><a href="http://www.codingcage.com/">Coding Cage - Programming Blog</a></label>
+     <label><a href="">Pet fuckers/a></label>
     </div>
     <div class="right">
      <label><a href="logout.php?logout=true"><i class="glyphicon glyphicon-log-out"></i> logout</a></label>
