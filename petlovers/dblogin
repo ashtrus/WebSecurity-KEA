@@ -1,0 +1,64 @@
+-- phpMyAdmin SQL Dump
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:8889
+-- Generation Time: Apr 25, 2017 at 04:51 PM
+-- Server version: 5.6.35
+-- PHP Version: 7.1.1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `dblogin`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL,
+  `user_name` varchar(255) NOT NULL,
+  `user_email` varchar(60) NOT NULL,
+  `user_pass` varchar(255) NOT NULL,
+  `user_token` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `user_name`, `user_email`, `user_pass`, `user_token`) VALUES
+(1, 'username', 'useremail', 'userpass', NULL),
+(2, 'palle', 'mail@gmail.com', 'password', NULL),
+(3, 'usernamenew', 'newemail@gmail.com', '$2y$10$lqF7xzmhoy85R4gOMNaRlusEouwlkgLe8wNDW8E3ENlatTp4pmWcO', NULL),
+(4, 'klomanden', 'klomanden@gmail.com', '$2y$10$/r8zySiJZB4v1mMwx2pfQur0Fp596KXESCkVz0o5QCOsPn4V9qH.6', NULL),
+(5, 'pallef', 'palle@gmail.com', '$2y$10$K/lI2HnkAbrp04BvbZig9u98AwJ5gnSuBCWE3v0A5CiClBb/pRi6G', 'a9e5e9ef996b76ea57f8acaf8e693542'),
+(6, 'sdfsdfds', 'sdfsdfdsf@gmail.com', '$2y$10$C5K0htJNqmW1c.rEfkoTFedKEBPksgrggO47bkRD76XySwJckpSIK', '0d918c437bb064cea5b2842a1741407a'),
+(7, 'hashed', 'hashe@gmail.com', '$2y$10$EhaDifzLnCa.//GiMMlr2eY1Mi7tdD3ADKLCJm81OuzDYvP3w8b9q', '1ecdc98752d72345491b4ef6eaa69992ea9c5635935def964a025f0621cdc6db');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `user_name` (`user_name`),
+  ADD UNIQUE KEY `user_email` (`user_email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
