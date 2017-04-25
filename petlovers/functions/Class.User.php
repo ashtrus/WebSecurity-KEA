@@ -18,7 +18,12 @@ class USER
        {
            $new_password = password_hash($upass, PASSWORD_DEFAULT);  //Needs configuration to SHA256  MOST SECYRE IMO 
 
-         $secureTokenAuth = bin2hex(random_bytes(16));
+         
+           $salt = base64_encode(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM)); 
+           $token = "H#cked4L1p"; 
+           $hashed_Token = hash("sha256", $token."mySecret".$salt); 
+           $secureTokenAuth = $hashed_Token;
+         
    
            //REQUERMENT -> MYSQL _ Remove Escape characters ---_> HERE!! !
            //$safe_variable = mysql_real_escape_string
