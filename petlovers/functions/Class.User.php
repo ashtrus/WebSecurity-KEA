@@ -61,6 +61,21 @@ class USER
            echo $e->getMessage();
        }
    }
+
+   
+
+
+
+   public function generateTokenAuth() { //Should be implemented to -> register and used on login to verify on the server 
+
+    
+    
+   $calc = hash('sha256', hex2bin($validator));
+
+     return $secureToken; 
+   }
+
+
  
    public function is_loggedin()
    {
@@ -81,6 +96,7 @@ class USER
         unset($_SESSION['user_session']);
         return true;
    }
+   
 }
 
 

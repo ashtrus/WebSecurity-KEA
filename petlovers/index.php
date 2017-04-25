@@ -21,7 +21,10 @@
    <?php include_once 'components/about.php'; ?> 
 
     <!-- Services -->
-   <?php include_once 'components/services.php'; ?>
+   <?php include_once 'components/services.php';
+   
+
+    ?>
 
     <!-- Portfolio -->
   <?php include_once 'components/portfolio.php'; ?> 
