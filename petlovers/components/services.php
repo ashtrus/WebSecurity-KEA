@@ -16,7 +16,7 @@
                                     <strong>Timeline</strong>
                                 </h4>
                                 <p>Join our social platform and start posting</p>
-                                <a href="http://localhost:8888/WebSecurity-KEA/petlovers/components/timeline/" class="btn btn-light">Learn More</a>
+                                <a href="./components/timeline/" class="btn btn-light">Learn More</a>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
