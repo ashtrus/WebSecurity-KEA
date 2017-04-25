@@ -1,6 +1,7 @@
 <?php
 
-include ('dbconfig.php');
+include 'dbconfig.php';
+include 'token.php';
 
 class USER
 {
@@ -16,16 +17,19 @@ class USER
        try
        {
            $new_password = password_hash($upass, PASSWORD_DEFAULT);  //Needs configuration to SHA256  MOST SECYRE IMO 
+
+         $secureTokenAuth = bin2hex(random_bytes(16));
    
            //REQUERMENT -> MYSQL _ Remove Escape characters ---_> HERE!! !
            //$safe_variable = mysql_real_escape_string
            //PREPARED STATEMENT
-           $stmt = $this->db->prepare("INSERT INTO users(user_name,user_email,user_pass) 
-                                                       VALUES(:uname, :umail, :upass)");
+           $stmt = $this->db->prepare("INSERT INTO users(user_name,user_email,user_pass,user_token) 
+                                                       VALUES(:uname, :umail, :upass, :utoken)");
               
            $stmt->bindparam(":uname", $uname);
            $stmt->bindparam(":umail", $umail);
-           $stmt->bindparam(":upass", $new_password);            
+           $stmt->bindparam(":upass", $new_password);    
+           $stmt->bindparam(":utoken", $secureTokenAuth);        
            $stmt->execute(); 
    
            return $stmt; 
@@ -67,11 +71,7 @@ class USER
 
 
    public function generateTokenAuth() { //Should be implemented to -> register and used on login to verify on the server 
-
-    
-    
-   $calc = hash('sha256', hex2bin($validator));
-
+    $calc = hash('sha256', hex2bin($validator));
      return $secureToken; 
    }
 
