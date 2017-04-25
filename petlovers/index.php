@@ -74,6 +74,7 @@
             </div>
             <br />
             <label>Don't have account yet ! <a href="functions/sign-up.php">Sign Up</a></label>
+             <label>Recover account ! <a href="functions/recover.php">Recover by email</a></label>
         </form>
        </div>
 </div>
