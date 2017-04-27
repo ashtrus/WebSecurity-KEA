@@ -7,7 +7,7 @@ console.log("crud ajax works");
         var inputs = $(this).serialize();
         console.log(inputs);
         
-        $.post("../petlovers/functions/api/insert-user.php", inputs, function () {
+        $.get("../petlovers/functions/api/insert-user.php?", inputs, function () {
             $('.content').load('../petlovers/functions/api/refresh.php');
         });
     })
