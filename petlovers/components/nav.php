@@ -9,6 +9,12 @@
                 <a href="#" onclick=$("#menu-close").click();>Login</a>
             </li>
             <li>
+                <a href="../petlovers/user-profile.php">Profile</a>
+            </li>
+            <li>
+                <a href="../petlovers/chat.php">Chat</a>
+            </li>
+            <li>
                 <a href="#top" onclick=$("#menu-close").click();>Home</a>
             </li>
             <li>

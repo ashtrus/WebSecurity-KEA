@@ -23,13 +23,13 @@
                             <div class="service-item">
                                 <span class="fa-stack fa-4x">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-compass fa-stack-1x text-primary"></i>
+                                <i class="fa fa-comments-o fa-stack-1x text-primary"></i>
                             </span>
                                 <h4>
-                                    <strong>Connect based on location</strong>
+                                    <strong>Chat with other owners</strong>
                                 </h4>
                                 <p>Match your pets with other animals</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
+                                <a href="../petlovers/chat.php" class="btn btn-light">Learn More</a>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">

@@ -27,9 +27,6 @@
   <?php include_once 'components/portfolio.php'; ?> 
 
 
-    <!-- Footer -->
-  <?php include_once 'components/footer.php'; ?> 
-
 
     <!-- Modal Login -->
   <?php include_once 'components/modal-login.php'; ?> 
@@ -38,18 +35,5 @@
   <?php include_once 'components/modal-register.php'; ?> 
 
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!--Auth --> 
-    <script src="js/auth.js"></script>
-
-    <!-- Custom theme -->
-    <script src="js/customtheme.js"> </script> 
-    
-</body>
-
-</html>
+    <!-- Footer -->
+  <?php include_once 'components/footer.php'; ?>

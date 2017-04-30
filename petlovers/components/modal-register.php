@@ -14,7 +14,7 @@
                         foreach ($error as $error) {
                 ?>
                     <div class="alert alert-danger">
-                        <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo $error; ?>
+                        <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo esc($error); ?>
                     </div>
                 
                 <?php
@@ -72,10 +72,10 @@
                 <form method="post">
 
             <div class="form-group">
-            <input type="text" class="form-control" name="txt_uname" placeholder="Enter Username" value="<?php if(isset($error)){echo $uname;}?>" />
+            <input type="text" class="form-control" name="txt_uname" placeholder="Enter Username" value="<?php if(isset($error)){echo esc($uname);}?>" />
             </div>
             <div class="form-group">
-            <input type="text" class="form-control" name="txt_umail" placeholder="Enter E-Mail ID" value="<?php if(isset($error)){echo $umail;}?>" />
+            <input type="text" class="form-control" name="txt_umail" placeholder="Enter E-Mail ID" value="<?php if(isset($error)){echo esc($umail);}?>" />
             </div>
             <div class="form-group">
              <input type="password" class="form-control" name="txt_upass" placeholder="Enter Password" />

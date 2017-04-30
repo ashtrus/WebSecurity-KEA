@@ -30,3 +30,19 @@
         </div>
         <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
     </footer>
+
+    
+        <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <!--Auth --> 
+    <script src="js/auth.js"></script>
+    <!-- Custom theme -->
+    <script src="js/customtheme.js"> </script> 
+
+    <script src="js/crud-ajax.js"></script>
+
+    
+    </body>
+</html>

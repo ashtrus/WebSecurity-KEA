@@ -1,12 +1,12 @@
 <?php
 
-include 'dbconfig.php';
-include 'token.php';
+// include 'dbconfig.php';
+// include_once 'token.php';
 
 class USER
 {
     private $db;
- 
+  
     function __construct($DB_con)
     {
       $this->db = $DB_con;
@@ -40,7 +40,7 @@ class USER
        catch(PDOException $e)
        {
            echo $e->getMessage();
-       }    
+       }     
     }
 
     public function recoverAccount($umail){
@@ -52,7 +52,7 @@ class USER
             if($stmt->rowCount() > 0 ) { //Result found
 
             $upass = $recoverPassword; 
-            include '/api/recover-mail.php';
+            include_once '/api/recover-mail.php';
 
            //include Send email + password 
                  

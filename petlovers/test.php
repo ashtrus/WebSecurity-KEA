@@ -1,29 +1,54 @@
-<div class="content">
+<!-- connect to DB-->
+<?php require_once('./functions/dbconfig.php'); ?>
+
 <?php 
+/**
+ * 
+ */
+// class ClassName extends AnotherClass
+// {
+    
+//     function __construct(argument)
+//     {
+//         # code...
+//     }
+// }
 
-// connect to DB
-    require_once('./functions/dbconfig.php');
+class User2 {
+    public $username, $email, $password, $token, $entry;
 
-$sql = 'SELECT * FROM users';
+    public function __construct()
+    {
+        $this->entry = "{$this->user_name} password is {$this->user_pass}";
+    }
+    
+}
+
 ?>
 
+
+
+<div class="content">
     <ul class="group">
 
-    <?php 
-        foreach ($DB_con->query($sql) as $row) {
-            $name = $row['user_name'];  
-    ?>
+<?php 
+    $sql = 'SELECT * FROM users';
+    $query = $DB_con->query($sql);
+    $query->setFetchMode(PDO::FETCH_CLASS, 'User2');
 
-        <li><?php echo $name ?></li><br>
+    while ($row = $query->fetch()) {
 
-    <?php 
-        }
-    ?>
+        $entry = $row->entry;
+?>
+        <li><?php echo esc($entry) ?></li><br>
+
+<?php
+
+   } ?>
 
     </ul>
 
 <?php $DB_con = null; ?>
-<?php ?>
 
 </div>
 
@@ -36,4 +61,3 @@ $sql = 'SELECT * FROM users';
 
 <script src="js/jquery.js"></script>
 <script src="js/crud-ajax.js"></script>
-
