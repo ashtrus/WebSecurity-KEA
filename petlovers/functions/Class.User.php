@@ -18,17 +18,23 @@ class USER
        {
            //$new_password = password_hash($upass, PASSWORD_DEFAULT);  //Needs configuration to SHA256  MOST SECYRE IMO 
 
+          
+           $salt4Token = base64_encode(mcrypt_create_iv(16,MCRYPT_DEV_URANDOM)); 
+           $token4Salting = "H#cked4L1p"; 
+           $userTokenAuth = hash("sha256", $token4Salting.$salt4Token); 
+
+
            $salt = base64_encode(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM)); 
-          // $token = "H#cked4L1p"; 
            $new_password = hash("sha256", $upass."mySecret".$salt); 
           
-           $stmt = $this->db->prepare("INSERT INTO users(user_name,user_email,user_pass) 
-                                                       VALUES(:uname, :umail, :upass)");
+          
+           $stmt = $this->db->prepare("INSERT INTO users(user_name,user_email,user_pass,user_token) 
+                                                       VALUES(:uname, :umail, :upass, :utoken)");
               
            $stmt->bindparam(":uname", $uname);
            $stmt->bindparam(":umail", $umail);
            $stmt->bindparam(":upass", $new_password);    
-           //$stmt->bindparam(":utoken", $hashed_Token);        
+           $stmt->bindparam(":utoken", $userTokenAuth);        
            $stmt->execute(); 
    
            return $stmt; 
