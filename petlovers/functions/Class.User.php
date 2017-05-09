@@ -12,27 +12,23 @@ class USER
       $this->db = $DB_con;
     }
  
-    public function register($fname,$lname,$uname,$umail,$upass)
+    public function register($fname,$lname,$uname,$umail,$upass) // 
     {
        try
        {
-           $new_password = password_hash($upass, PASSWORD_DEFAULT);  //Needs configuration to SHA256  MOST SECYRE IMO 
+           //$new_password = password_hash($upass, PASSWORD_DEFAULT);  //Needs configuration to SHA256  MOST SECYRE IMO 
 
            $salt = base64_encode(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM)); 
-           $token = "H#cked4L1p"; 
-           $hashed_Token = hash("sha256", $token."mySecret".$salt); 
-           $secureTokenAuth = $hashed_Token;
-         
-           //REQUERMENT -> MYSQL _ Remove Escape characters ---_> HERE!! !
-           //$safe_variable = mysql_real_escape_string
-           //PREPARED STATEMENT
-           $stmt = $this->db->prepare("INSERT INTO users(user_name,user_email,user_pass,user_token) 
-                                                       VALUES(:uname, :umail, :upass, :utoken)");
+          // $token = "H#cked4L1p"; 
+           $new_password = hash("sha256", $upass."mySecret".$salt); 
+          
+           $stmt = $this->db->prepare("INSERT INTO users(user_name,user_email,user_pass) 
+                                                       VALUES(:uname, :umail, :upass)");
               
            $stmt->bindparam(":uname", $uname);
            $stmt->bindparam(":umail", $umail);
            $stmt->bindparam(":upass", $new_password);    
-           $stmt->bindparam(":utoken", $secureTokenAuth);        
+           //$stmt->bindparam(":utoken", $hashed_Token);        
            $stmt->execute(); 
    
            return $stmt; 
@@ -42,7 +38,7 @@ class USER
            echo $e->getMessage();
        }     
     }
-
+/*
     public function recoverAccount($umail){
         
         try {
@@ -55,8 +51,6 @@ class USER
             include_once '/api/recover-mail.php';
 
            //include Send email + password 
-                 
-
            //passing to email 
             }
         }
@@ -65,7 +59,7 @@ class USER
     }
 
     } 
- 
+ */
     public function login($uname,$umail,$upass)
     {
        try
