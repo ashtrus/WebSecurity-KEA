@@ -3,7 +3,7 @@
 include_once("dbconfig.php");
 
 $folder = "uploads/";
-<<<<<<< HEAD
+
 $upload_image = $folder.basename($_FILES["fileToUpload"]["tmp_name"]);
 $types = array('image/jpeg', 'image/gif', 'image/png', 'image/jpg');
 $verifyimg  = getimagesize($_FILES['fileToUpload']['tmp_name']);
@@ -11,7 +11,7 @@ $verifyimg  = getimagesize($_FILES['fileToUpload']['tmp_name']);
    
 if(isset($_POST["submit"])) {   //On upload POST  
 
-    if($verifyimg['mime'] != 'image/jpeg'){ //Procces image to checkFile type/size validation 
+    if($verifyimg['mime'] != 'image/png'){ //Procces image to checkFile type/size validation 
           echo 'filetypes are not allowed for sec purpose'; 
           exit;
     } else {
@@ -25,7 +25,7 @@ if(isset($_POST["submit"])) {   //On upload POST
         $stmt->execute();
 
         //Navigate to display the image
-        header( 'Location: fetch_image.php' );
+        header( 'Location: fetch_image.php');
        // echo 'img successfull ';
          } 
     }
@@ -36,7 +36,7 @@ if(isset($_POST["submit"])) {   //On upload POST
 
 }       
     
-=======
+
 $upload_image = $folder . basename($_FILES["fileToUpload"]["name"]);
 
 if(isset($_POST["submit"])) {
@@ -54,10 +54,10 @@ $stmt->execute();
 //Navigate to display the image
 header( 'Location: fetch_image.php' );
 
-} else {
-echo "Sorry, there was an error uploading your file.";
+    } else {
+    echo "Sorry, there was an error uploading your file.";
+    }
 }
-}
->>>>>>> 49490ea282012b049755805ebe713112308868e8
+
 
 ?>

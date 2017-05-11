@@ -3,9 +3,9 @@
 session_start();
 include_once 'security.php';
 
-$DB_host = "127.0.0.1";
+$DB_host = "localhost";
 $DB_user = "root";
-$DB_pass = "";
+$DB_pass = "123";
 $DB_name = "dblogin";
 
 try {
