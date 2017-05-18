@@ -3,7 +3,7 @@
         <ul class="sidebar-nav">
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
             <li class="sidebar-brand">
-                <a href="#top" onclick=$("#menu-close").click();>Start Bootstrap</a>
+                <a href="./index.php" onclick=$("#menu-close").click();>Home</a>
             </li>
             <li id="openModalLogin">
                 <a href="#" onclick=$("#menu-close").click();>Login</a>
@@ -15,19 +15,13 @@
                 <a href="../petlovers/chat.php">Chat</a>
             </li>
             <li>
-                <a href="#top" onclick=$("#menu-close").click();>Home</a>
+                <a href="./index.php#about" onclick=$("#menu-close").click();>About</a>
             </li>
             <li>
-                <a href="#about" onclick=$("#menu-close").click();>About</a>
+                <a href="./index.php#services" onclick=$("#menu-close").click();>Services</a>
             </li>
             <li>
-                <a href="#services" onclick=$("#menu-close").click();>Services</a>
-            </li>
-            <li>
-                <a href="#portfolio" onclick=$("#menu-close").click();>Our Pets</a>
-            </li>
-            <li>
-                <a href="#contact" onclick=$("#menu-close").click();>Contact</a>
+                <a href="./index.php#portfolio" onclick=$("#menu-close").click();>Our Pets</a>
             </li>
         </ul>
     </nav>
