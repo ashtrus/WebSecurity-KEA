@@ -6,12 +6,38 @@
 class USER
 {
     private $db;
+    public $test = "test variable form User class";
   
     function __construct($DB_con)
     {
       $this->db = $DB_con;
     }
  
+    public function getUserProfile($username) {
+        try
+        {
+            $stmt = $this->db->prepare("SELECT user_name, user_email
+                                          FROM users 
+                                          WHERE user_name=:uname 
+                                          LIMIT 1
+                                        ");
+
+            $stmt->bindparam(":uname", $username);        
+            $stmt->execute(); 
+            $userRow=$stmt->fetch(PDO::FETCH_OBJ);
+
+            if($stmt->rowCount() > 0)
+            {
+                return $userRow;
+            }
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+    
+
     public function register($fname,$lname,$uname,$umail,$upass) // 
     {
        try
@@ -29,7 +55,7 @@ class USER
           
           
            $stmt = $this->db->prepare("INSERT INTO users(user_name,user_email,user_pass,user_token) 
-                                                       VALUES(:uname, :umail, :upass, :utoken)");
+                                        VALUES(:uname, :umail, :upass, :utoken)");
               
            $stmt->bindparam(":uname", $uname);
            $stmt->bindparam(":umail", $umail);
@@ -70,18 +96,29 @@ class USER
     {
        try
        {
-          $stmt = $this->db->prepare("SELECT * FROM users WHERE user_name=:uname OR user_email=:umail LIMIT 1");
+          $stmt = $this->db->prepare("SELECT * 
+                                        FROM users 
+                                        WHERE user_name=:uname 
+                                        OR user_email=:umail 
+                                        LIMIT 1
+                                    ");
+                                    
           $stmt->execute(array(':uname'=>$uname, ':umail'=>$umail));
           $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
           if($stmt->rowCount() > 0)
           {
              if(password_verify($upass, $userRow['user_pass']))
              {
-                $_SESSION['user_session'] = $userRow['user_id'];
+                // Set session  
+                $_SESSION['user_session'] = $userRow['user_name'];
+                $this->redirect('user-profile.php');
+                echo 'Successfully Logged in';
                 return true;
              }
              else
              {
+                $error = "Wrong login Credentials !";
+		        echo $error; 
                 return false;
              }
           }
