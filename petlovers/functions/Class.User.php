@@ -36,6 +36,30 @@ class USER
             echo $e->getMessage();
         }
     }
+
+    public function getUserPets($username) {
+        try
+        {
+            $stmt = $this->db->prepare("SELECT *
+                                          FROM pets 
+                                          WHERE owner=:uname 
+                                          LIMIT 1
+                                        ");
+
+            $stmt->bindparam(":uname", $username);        
+            $stmt->execute(); 
+            $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
+
+            if($stmt->rowCount() > 0)
+            {
+                return $userRow;
+            }
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
     
 
     public function register($fname,$lname,$uname,$umail,$upass) // 
@@ -146,6 +170,7 @@ class USER
    {
         session_destroy();
         unset($_SESSION['user_session']);
+        $this->redirect('../index.php');
         return true;
    }
    

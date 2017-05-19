@@ -5,3 +5,7 @@
     border: 1px solid #e2e2e2;
     padding: 10px;
 }
+
+i#btnLogout {
+    padding-right: 65px;
+}

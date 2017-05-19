@@ -73,12 +73,23 @@
 
     // Open Modal for login 
     $('#openModalLogin').click( function() {        
-        $('#modalLogin').modal('toggle')
+        $('#modalLogin').modal('toggle');
+    });  
+
+    $(document).ready( function() {        
+        console.log('ready');
+        $('#modalLogin').modal('toggle');
+        $('#formAddPet').hide();
     });  
 
     // Open Modal for login 
     $('#openModalRegister').click( function() {        
-        $('#modalRegister').modal('toggle')
+        $('#modalRegister').modal('toggle');
+    });  
+
+    // Toggle #formAddPet
+    $('#btnAddPet').click(function () {
+        $('#formAddPet').toggle();
     });  
 
 

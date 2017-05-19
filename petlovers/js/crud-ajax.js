@@ -32,5 +32,28 @@ jQuery(document).ready(function () {
         });
     })
 
+    // Insert pet into DB
+    $('#formAddPet').submit(function (e) {
+        e.preventDefault(); // prevents page refresh
+
+        console.log('add pets form');
+        var inputs = $(this).serialize();
+        console.log(inputs);
+
+        $.get("../petlovers/functions/api/insert-pet.php?", inputs, function () {
+            $('#petsContainer').on('load', loadPets());
+            console.log('pet saved');
+            $('#formAddPet').hide();
+        });
+    })
+
+    function loadPets() {
+        console.log('pets loaded');
+        $('#petsContainer').load('../petlovers/functions/api/get-pets.php');
+    }
+
+    // Load pets on profile page load
+    $('#petsContainer').on('load', loadPets());
+
 
 })

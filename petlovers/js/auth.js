@@ -27,6 +27,11 @@ $.ajax({
 
 })
 
+// Logout
 
+$('#btnLogout').click(function () { 
+    console.log("logout btn clicked");
+    $.get("./functions/logout.php");
+})
 
 //Register 
